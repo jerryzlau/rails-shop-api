@@ -35,6 +35,7 @@ SQL query:
 | price         | float         | not null |
 | weight        | float         | not null |
 | category_id   | integer       | not null |
+| order_id      | integer       |          |
 
 ### Category
 
@@ -42,7 +43,6 @@ SQL query:
 | ------------- |:-------------:| -----:  |
 | id            | integer       | not null, primary key |
 | name          | string        | not null |
-| product_id    | integer       | not null |
 
 ### Order
 
@@ -50,7 +50,6 @@ SQL query:
 | ------------- |:-------------:| -----:|
 | id            | integer       | not null, primary key |
 | status        | string        | default: 'waiting for delivery' |
-| product_id    | integer       | not null |
 | customer_id   | integer       | not null |
 
 ## Routes 
