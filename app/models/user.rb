@@ -12,7 +12,7 @@
 class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
 
-  has_many: :orders,
+  has_many :orders,
   primary_key: :id,
   foreign_key: :customer_id,
   class_name: :Order

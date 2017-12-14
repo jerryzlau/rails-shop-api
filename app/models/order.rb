@@ -14,12 +14,12 @@ class Order < ApplicationRecord
   validates: :status, presence: true, inclusion: { in: ['waiting for delivery', 'on its way', 'delivered']}
   validtes: :customer_id, presence: true 
 
-  belongs_to: :customer,
+  belongs_to :customer,
   primary_key: :id,
   foreign_key: :customer_id,
   class_name: :User
 
-  has_many: :products,
+  has_many :products,
   primary_key: :id,
   foreign_key: :order_id,
   class_name: :Product
