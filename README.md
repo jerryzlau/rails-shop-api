@@ -26,6 +26,14 @@ SQL query:
 | first_name    | string        | not null |
 | last_name     | string        | not null |
 
+### Order
+
+| Column Name   | Data Type     | Details |
+| ------------- |:-------------:| -----:|
+| id            | integer       | not null, primary key |
+| status        | string        | default: 'waiting for delivery' |
+| customer_id   | integer       | not null |
+
 ### Product 
 
 | Column Name   | Data Type     | Details |
@@ -44,13 +52,13 @@ SQL query:
 | id            | integer       | not null, primary key |
 | name          | string        | not null |
 
-### Order
+### Product_Category
 
 | Column Name   | Data Type     | Details |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:| -----:  |
 | id            | integer       | not null, primary key |
-| status        | string        | default: 'waiting for delivery' |
-| customer_id   | integer       | not null |
+| category_id   | string        | not null |
+| product_id    | string        | not null |
 
 ## Routes 
 

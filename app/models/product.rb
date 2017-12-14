@@ -6,26 +6,27 @@
 #  name        :string           not null
 #  price       :float            not null
 #  weight      :float            not null
-#  category_id :integer          not null
 #  order_id :integer          
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
 class Product < ApplicationRecord
-  validates: :name, :price, :weight, :category_id, presence: true
-
-  belongs_to :category,
-  primary_key: :id,
-  foreign_key: :category_id,
-  class_name: :Category 
+  validates :name, :price, :weight, presence: true
 
   belongs_to :order,
   primary_key: :id,
   foreign_key: :order_id,
   class_name: :Order
 
+  has_many :product_categories,
+  primary_key: :id,
+  foreign_key: :product_id,
+  class_name: :ProductCategory
+
   has_many :categories,
-  through: :category,
-  source: :products
+  through: :product_categories,
+  source: :category
+
+
 end

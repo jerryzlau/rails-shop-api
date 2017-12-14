@@ -11,8 +11,8 @@
 
 class Order < ApplicationRecord
 
-  validates: :status, presence: true, inclusion: { in: ['waiting for delivery', 'on its way', 'delivered']}
-  validtes: :customer_id, presence: true 
+  validates :status, presence: true, inclusion: { in: ['waiting for delivery', 'on its way', 'delivered']}
+  validates :customer_id, presence: true 
 
   belongs_to :customer,
   primary_key: :id,

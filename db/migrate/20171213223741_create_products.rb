@@ -4,8 +4,8 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.string :name, null: false
       t.float :price, null: false 
       t.float :weight, null: false
-      t.integer :category_id, null: false 
-      t.integer :order_id 
+      # t.integer :category_id, null: false 
+      t.integer :order_id, null: true
 
       t.timestamps
     end

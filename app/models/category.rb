@@ -9,12 +9,15 @@
 #
 
 class Category < ApplicationRecord
-  validates: :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
-  has_many :products,
+  has_many :product_categories,
   primary_key: :id,
   foreign_key: :category_id,
-  class_name: :Product 
+  class_name: :ProductCategory
 
+  has_many :products,
+  through: :product_categories,
+  source: :product
 
 end
