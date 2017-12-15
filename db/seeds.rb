@@ -36,19 +36,22 @@ Category.create(name: 'crackers')
 # Product 1
 Product.create(name: 'Doritos Nacho Cheese Flavored Tortilla Chips, Party Size!',
   price: 4.77,
-  weight: 15
+  weight: 15,
+  inventory: 20
 ) 
 
 # Product 2
 Product.create(name: 'Entertainment Cracker Collection,43.31 OZ',
   price: 16.57,
-  weight: 43.31
+  weight: 43.31,
+  inventory: 20
 ) 
 
 # Product 3
 Product.create(name: 'Pringles 2 Flavor Snack Stacks, 0.63 Ounce, 18 count',
   price: 12.50,
-  weight: 0.63
+  weight: 0.63,
+  inventory: 20
 )
 
 # Product Category 
