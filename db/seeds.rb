@@ -19,39 +19,40 @@ Order.create(
   customer_id: 1
 )
 
+Order.create(
+  customer_id: 2
+)
+
+Order.create(
+  customer_id: 1
+)
+
 # Category
 Category.create(name: 'snacks')
 Category.create(name: 'chips')
 Category.create(name: 'crackers')
 
-Category.create(name: 'breakfast')
-Category.create(name: 'bars')
-Category.create(name: 'cereal')
-
 # Product weight in oz
-# Order 1 Product 1
+# Product 1
 Product.create(name: 'Doritos Nacho Cheese Flavored Tortilla Chips, Party Size!',
   price: 4.77,
-  weight: 15,
-  order_id: 1
+  weight: 15
 ) 
 
-# Order 1 Product 2
-Product.create(name: 'Doritos Nacho Cheese Flavored Tortilla Chips, Party Size!',
-  price: 3.64,
-  weight: 21,
-  order_id: 1
+# Product 2
+Product.create(name: 'Entertainment Cracker Collection,43.31 OZ',
+  price: 16.57,
+  weight: 43.31
 ) 
 
-# Order 1 Product 3
+# Product 3
 Product.create(name: 'Pringles 2 Flavor Snack Stacks, 0.63 Ounce, 18 count',
   price: 12.50,
-  weight: 0.63,
-  order_id: 1
+  weight: 0.63
 )
 
 # Product Category 
-# Chips
+# Doritos Nacho Cheese Flavored Tortilla Chips, Party Size!
 ProductCategory.create(
   category_id: 1,
   product_id: 1
@@ -61,6 +62,17 @@ ProductCategory.create(
   product_id: 1
 )
 
+# Entertainment Cracker Collection,43.31 OZ
+ProductCategory.create(
+  category_id: 1,
+  product_id: 2
+)
+ProductCategory.create(
+  category_id: 3,
+  product_id: 2
+)
+
+# Pringles 2 Flavor Snack Stacks, 0.63 Ounce, 18 count
 ProductCategory.create(
   category_id: 1,
   product_id: 3
@@ -70,14 +82,35 @@ ProductCategory.create(
   product_id: 3
 )
 
-# Cereal
-ProductCategory.create(
-  category_id: 4,
-  product_id: 2
+# Order Items
+# Order 1
+OrderItem.create(
+  order_id: 1,
+  product_id: 1,
 )
-ProductCategory.create(
-  category_id: 6,
-  product_id: 2
+OrderItem.create(
+  order_id: 1,
+  product_id: 1,
+)
+OrderItem.create(
+  order_id: 1,
+  product_id: 2,
+)
+
+# Order 2
+OrderItem.create(
+  order_id: 2,
+  product_id: 3,
+)
+
+# Order 3
+OrderItem.create(
+  order_id: 3,
+  product_id: 3,
+)
+OrderItem.create(
+  order_id: 3,
+  product_id: 2,
 )
 
 

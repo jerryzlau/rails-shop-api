@@ -34,6 +34,14 @@ SQL query:
 | status        | string        | default: 'waiting for delivery' |
 | customer_id   | integer       | not null |
 
+### Order Items
+
+| Column Name   | Data Type     | Details |
+| ------------- |:-------------:| -----:|
+| id            | integer       | not null, primary key |
+| order_id      | string        | default: 'waiting for delivery' |
+| product_id    | integer       | not null |
+
 ### Product 
 
 | Column Name   | Data Type     | Details |
@@ -43,7 +51,6 @@ SQL query:
 | price         | float         | not null |
 | weight        | float         | not null |
 | category_id   | integer       | not null |
-| order_id      | integer       |          |
 
 ### Category
 

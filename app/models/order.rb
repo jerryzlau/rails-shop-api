@@ -19,8 +19,12 @@ class Order < ApplicationRecord
   foreign_key: :customer_id,
   class_name: :User
 
-  has_many :products,
+  has_many :ordered_items,
   primary_key: :id,
   foreign_key: :order_id,
-  class_name: :Product
+  class_name: :OrderItem
+
+  has_many :products,
+  through: :ordered_items,
+  source: :product
 end

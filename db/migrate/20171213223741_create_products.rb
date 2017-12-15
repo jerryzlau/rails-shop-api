@@ -2,10 +2,8 @@ class CreateProducts < ActiveRecord::Migration[5.1]
   def change
     create_table :products do |t|
       t.string :name, null: false
-      t.float :price, null: false 
-      t.float :weight, null: false
-      # t.integer :category_id, null: false 
-      t.integer :order_id, null: true
+      t.decimal :price, null: false, precision: 10, scale: 2
+      t.decimal :weight, null: false, precision: 10, scale: 2
 
       t.timestamps
     end

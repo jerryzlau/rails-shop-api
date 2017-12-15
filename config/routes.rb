@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end 
 
+  resources :orderitems, only: [:index]
+
   # resources :products, only: [:index, :create, :destroy, :edit]
 
   # resources :categories, only: [:index, :create, :destory, :edit]
