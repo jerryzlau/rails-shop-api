@@ -53,34 +53,34 @@ Product.create(name: 'Pringles 2 Flavor Snack Stacks, 0.63 Ounce, 18 count',
 
 # Product Category 
 # Doritos Nacho Cheese Flavored Tortilla Chips, Party Size!
-ProductCategory.create(
-  category_id: 1,
-  product_id: 1
-)
-ProductCategory.create(
-  category_id: 2,
-  product_id: 1
-)
+# ProductCategory.create(
+#   category_id: 1,
+#   product_id: 1
+# )
+# ProductCategory.create(
+#   category_id: 2,
+#   product_id: 1
+# )
 
-# Entertainment Cracker Collection,43.31 OZ
-ProductCategory.create(
-  category_id: 1,
-  product_id: 2
-)
-ProductCategory.create(
-  category_id: 3,
-  product_id: 2
-)
+# # Entertainment Cracker Collection,43.31 OZ
+# ProductCategory.create(
+#   category_id: 1,
+#   product_id: 2
+# )
+# ProductCategory.create(
+#   category_id: 3,
+#   product_id: 2
+# )
 
 # Pringles 2 Flavor Snack Stacks, 0.63 Ounce, 18 count
-ProductCategory.create(
-  category_id: 1,
-  product_id: 3
-)
-ProductCategory.create(
-  category_id: 2,
-  product_id: 3
-)
+# ProductCategory.create(
+#   category_id: 1,
+#   product_id: 3
+# )
+# ProductCategory.create(
+#   category_id: 2,
+#   product_id: 3
+# )
 
 # Order Items
 # Order 1

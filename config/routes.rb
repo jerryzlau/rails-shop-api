@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   resources :orderitems, only: [:index]
 
-  # resources :products, only: [:index, :create, :destroy, :edit]
+  resources :products, except: [:new, :edit] do 
+    collection do 
+      post 'add_categories/:id' => :add_categories
+    end 
+  end 
 
   # resources :categories, only: [:index, :create, :destory, :edit]
 
