@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   protect_from_forgery
 
-
   def index
     @products = Product.all
   end
@@ -23,6 +22,7 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     if product 
       product.destroy 
+      render json: ["Deleted #{product.name}"]
     else 
       render json: ["Product doesn't exist"], status: 404
     end

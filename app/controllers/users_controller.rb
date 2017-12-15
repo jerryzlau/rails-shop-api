@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     if user 
       user.destroy
+      render json: ["Deleted #{user.first_name} #{user.last_name}"]
     else
       render json: ["User doesn't exist"], status: 404
     end 
