@@ -10,7 +10,7 @@
 #
 
 class ProductCategory < ApplicationRecord
-  validates :category_id, :product_id, presence: true
+  validates :product_id, uniqueness: { scope: :category_id }, presence: true
 
   belongs_to :product,
   primary_key: :id,
