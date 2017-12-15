@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
   end 
 
   def create
+    # product creation doesn't require categories right away
+    # add categories later on with add_categories method
     @product = Product.new(product_params)
     if @product.save
       render :show 
@@ -52,7 +54,7 @@ class ProductsController < ApplicationController
         product_category = ProductCategory.new(product_id: product_id, 
                                                category_id: category_id)
         if !product_category.save 
-          errors << product_category.errors.full_messages
+          errors << "Error at category_id:#{category_id}, #{product_category.errors.full_messages}"
         end 
       end 
 
