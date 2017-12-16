@@ -21,4 +21,9 @@ class OrderItem < ApplicationRecord
   primary_key: :id,
   foreign_key: :product_id,
   class_name: :Product
+
+  # use queries to return search result
+  def self.find_by_date(start_date, end_date)
+    OrderItem.where("created_at BETWEEN ? AND ?", "%#{start_date}%", "%#{end_date + 1.day}%");
+  end 
 end

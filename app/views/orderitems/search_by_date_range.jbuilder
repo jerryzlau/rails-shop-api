@@ -1,1 +1,1 @@
-json.daily @daily
+json.result @result
