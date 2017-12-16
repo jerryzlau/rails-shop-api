@@ -49,7 +49,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if @order 
       @customer = @order.customer
-      @products = @order.products.uniq
+      @products = @order.products
       @categories = []
       @products.each do |product|
         product.categories.each do |category|

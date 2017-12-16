@@ -71,7 +71,7 @@ SQL query:
 
 ### Users
 
-* `GET /users/:id` - return a specific user info
+* `GET /users/:id` - return a user info and orders associated with the user
 * `POST /users` - sign up a user with first and last name 
 * `DELETE /users/:id` - delete a user account 
 

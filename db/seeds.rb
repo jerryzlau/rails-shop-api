@@ -9,7 +9,7 @@
 require 'faker'
 
 # users
-5.times do |n|
+3.times do |n|
   User.create(first_name: Faker::Name.unique.first_name,
               last_name: Faker::Name.unique.last_name)
 end 
