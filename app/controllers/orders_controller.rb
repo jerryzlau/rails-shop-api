@@ -42,8 +42,7 @@ class OrdersController < ApplicationController
     order_items.each do |item_id, amount|
       valid = false if Product.find(item_id).inventory < amount 
     end 
-
-    return valid 
+    valid 
   end 
 
   def update 

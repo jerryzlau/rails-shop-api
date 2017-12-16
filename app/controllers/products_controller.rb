@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     if product 
       product.destroy 
-      render json: ["Deleted #{product.name}"]
+      render json: ["Deleted #{product.name}!"]
     else 
       render json: ["Product doesn't exist"], status: 404
     end
@@ -40,7 +40,6 @@ class ProductsController < ApplicationController
   end
 
   def add_categories
-
     # look for product_categories in params, if it exist and a product id is also provided
     # we will proceed into adding categories to the product
     category_ids = params[:product_categories]
@@ -48,7 +47,6 @@ class ProductsController < ApplicationController
 
     if category_ids && product_id
       errors = []
-
       # Add product categories one by one 
       category_ids.each do |category_id|
         product_category = ProductCategory.new(product_id: product_id, 
