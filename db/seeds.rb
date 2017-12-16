@@ -37,7 +37,7 @@ Category.create(name: 'crackers')
 Product.create(name: 'Doritos Nacho Cheese Flavored Tortilla Chips, Party Size!',
   price: 4.77,
   weight: 15,
-  inventory: 20
+  inventory: 1
 ) 
 
 # Product 2

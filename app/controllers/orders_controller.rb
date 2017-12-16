@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  protect_from_forgery
 
   def index 
     @orders = Order.all
@@ -14,19 +15,35 @@ class OrdersController < ApplicationController
 
     # check if there are customer ordering and items ordered
     if order_items && customer_id
-      # check if the shopping cart is empty
-      if order_items.empty? 
-        render json: ["Order is empty!"], status: 422
-      end 
-      # check if Product has inventory 
-
-      
-      # create the order and decrement the product inventory 
+      make_order(order_items, customer_id)
+    else 
+      render json: ["No Order Items or Cusomter Info"], status: 422
     end 
   end
 
-  def check_inventory(order_items)
+  def make_order(order_items, customer_id)
+    if can_make_order?(order_items)
+      # create the order and decrement the product inventory 
 
+      new_order = Order.create(customer_id: customer_id)
+      order_items.each do |item_id, amount|
+        OrderItem.create(product_id: item_id, order_id: new_order.id)
+        product = Product.find(item_id)
+        product.update_attributes(inventory: (product.inventory - amount))
+      end 
+    else 
+      render json: ["Insufficient inventory"], status: 422
+    end
+  end 
+
+  def can_make_order?(order_items)
+    # check if Product has inventory 
+    valid = true 
+    order_items.each do |item_id, amount|
+      valid = false if Product.find(item_id).inventory < amount 
+    end 
+
+    return valid 
   end 
 
   def update 
