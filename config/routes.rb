@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :create, :destroy]
 
-  resources :orders, only: [:index, :update, :create] do 
+  resources :orders, only: [:index, :create] do 
     collection do 
       get 'shipt_search/:id' => :shipt_search
     end

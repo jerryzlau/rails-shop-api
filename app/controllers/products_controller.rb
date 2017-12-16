@@ -56,17 +56,21 @@ class ProductsController < ApplicationController
         end 
       end 
 
-      # error handling for adding categories 
-      if errors.empty?
-        product = Product.find(product_id)
-        categories = product.categories.map {|category| category.name }
-        render json: ["Sucessfully put #{product.name} into #{categories} categories"]
-      else 
-        render json: errors, status: 422
-      end 
+      handle_add_categories_error(errors)
 
     else
       render json: ["No Catgories or product provided to add"], status: 422
+    end 
+  end 
+
+  def handle_add_categories_error(errors)
+    # error handling for adding categories 
+    if errors.empty?
+      product = Product.find(product_id)
+      categories = product.categories.map {|category| category.name }
+      render json: ["Sucessfully put #{product.name} into #{categories} categories"]
+    else 
+      render json: errors, status: 422
     end 
   end 
 

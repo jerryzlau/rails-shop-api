@@ -45,10 +45,6 @@ class OrdersController < ApplicationController
     valid 
   end 
 
-  def update 
-
-  end 
-
   def shipt_search
     @order = Order.find(params[:id])
     if @order 
