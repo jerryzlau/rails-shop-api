@@ -49,13 +49,14 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if @order 
       @customer = @order.customer
-      @products = @order.products
+      @products = @order.products.uniq
       @categories = []
       @products.each do |product|
         product.categories.each do |category|
-          @categories << category if !@categories.include?(category)
+          @categories << category 
         end 
       end 
+      @categories.uniq
     else 
       render json: ["Order doesn't exist"], status: 404
     end 

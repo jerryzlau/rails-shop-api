@@ -110,7 +110,7 @@ product/order join table
   "order_items": [1,2,2,3,3,3,4] 
 ```
 for each element in the order_items array, orders create will check if product has enough inventory , if it does, then decrements product inventory and create entry in product/order join table 
-* `GET /orders/shipt_search` - returns json result based on the format wanted in prompt as shown below:
+* `GET /orders/shipt_search/:id` - returns json result based on the format wanted in prompt as shown below:
 
 | customer id   | customer first name | category id | category name | number purchased |
 | ------------  | ------------------- | --------    |  ----------   | ---------------- |
