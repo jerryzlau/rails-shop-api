@@ -1,21 +1,5 @@
 # Shopping API
 
-SQL query: 
-```sql
-  SELECT DISTINCT 
-    user.id AS customer_id, 
-    user.first_name AS customer_first_name, 
-    category.id AS category_id, 
-    category.name AS category_name,
-    COUNT (*) AS number_purchased
-  FROM 
-    user, category
-  WHERE 
-    user.id = 1
-    AND 
-    category.id = 1
-```
-
 ## Schema
 
 ### User 
@@ -88,7 +72,8 @@ SQL query:
 Given an array of cetgories we want to add to product 
 ```json
   // params for add_categories with sample data
-  "product_categories": [2,3] // array of category ids 
+  "product_categories": [2,3], // array of category ids 
+  "product_id": 1
 ```
 add_categories will create an entry in product/category join table for every category 
 Note: Contraints are added so that this method will throw error if user attempt to add same category to a product more than once 

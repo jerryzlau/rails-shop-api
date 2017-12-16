@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
     # look for product_categories in params, if it exist and a product id is also provided
     # we will proceed into adding categories to the product
     category_ids = params[:product_categories]
-    product_id = params[:id]
+    product_id = params[:product_id]
 
     if category_ids && product_id
       errors = []
@@ -56,14 +56,14 @@ class ProductsController < ApplicationController
         end 
       end 
 
-      handle_add_categories_error(errors)
+      handle_add_categories_error(errors, product_id)
 
     else
       render json: ["No Catgories or product provided to add"], status: 422
     end 
   end 
 
-  def handle_add_categories_error(errors)
+  def handle_add_categories_error(errors, product_id)
     # error handling for adding categories 
     if errors.empty?
       product = Product.find(product_id)

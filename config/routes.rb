@@ -9,11 +9,15 @@ Rails.application.routes.draw do
     end
   end 
 
-  resources :orderitems, only: [:index]
+  resources :orderitems, only: [:index] do 
+    collection do 
+      get 'search_by_date_range/start_date=:start_date/end_date=:end_date' => :search_by_date_range
+    end 
+  end 
 
   resources :products, except: [:new, :edit] do 
     collection do 
-      post 'add_categories/:id' => :add_categories
+      post 'add_categories' => :add_categories
     end 
   end 
 
