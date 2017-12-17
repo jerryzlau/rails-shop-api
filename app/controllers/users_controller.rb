@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   protect_from_forgery
 
   def show 
-    @user = User.find(params[:id])
+    p params
+    @user = User.find(params[:id]).orders
   end 
 
   def create 

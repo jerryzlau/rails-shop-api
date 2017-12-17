@@ -23,7 +23,8 @@ class OrderItem < ApplicationRecord
   class_name: :Product
 
   # use queries to return search result
-  def self.find_by_date(start_date, end_date)
-    OrderItem.where("created_at BETWEEN ? AND ?", "%#{start_date}%", "%#{end_date + 1.day}%");
+  def self.find_by_date(start_date, end_date, range)
+    OrderItem.where("DATE(created_at) BETWEEN ? AND ?","%#{start_date}%", "%#{end_date + 1.day}%")
+      .group("DATE_TRUNC('#{range}', created_at)").count
   end 
 end
