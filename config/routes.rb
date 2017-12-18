@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :orderitems, only: [:index] do 
     collection do 
-      get 'search_by_date_range/start_date=:start_date/end_date=:end_date/range=:range' => :search_by_date_range
+      post 'search_by_date_range' => :search_by_date_range
     end 
   end 
 

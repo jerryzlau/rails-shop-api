@@ -85,6 +85,7 @@ Note: Contraints are added so that this method will throw error if user attempt 
 * `DELETE /categories` - delete a category 
 
 ### Order
+
 * `GET /orders` - return all orders, and order items from join table
 * `POST /orders` - create an order 
 Order create checks product inventory, if it does decrements product inventory and create entry in 
@@ -101,6 +102,17 @@ for each element in the order_items array, orders create will check if product h
 | ------------  | ------------------- | --------    |  ----------   | ---------------- |
 | 1             |         John        |      1      | Bouquets      |        15        |
 
+### Order Item 
+
+* `GET /orderitems` - return all order ids
+* `POST /orderitems/search_by_date_range` - return number of orders by date range 
+
+```json
+  // params for orderitems search_by_date_range with sample data
+  "start_date": "2017-12-16",
+  "end_date": "2017-12-30",
+  "range": "day" // day, month or year
+```
 
 
 
