@@ -90,30 +90,36 @@ ProductCategory.create(
 OrderItem.create(
   order_id: 1,
   product_id: 1,
+  created_at: Time.parse('2017-12-16')
 )
 OrderItem.create(
   order_id: 1,
   product_id: 1,
+  created_at: Time.parse('2017-12-16')
 )
 OrderItem.create(
   order_id: 1,
   product_id: 2,
+  created_at: Time.parse('2017-12-16')
 )
 
 # Order 2
 OrderItem.create(
   order_id: 2,
   product_id: 3,
+  created_at: Time.parse('2017-12-30')
 )
 
 # Order 3
 OrderItem.create(
   order_id: 3,
   product_id: 3,
+  created_at: Time.parse('2018-05-18')
 )
 OrderItem.create(
   order_id: 3,
   product_id: 2,
+  created_at: Time.parse('2018-05-18')
 )
 
 
