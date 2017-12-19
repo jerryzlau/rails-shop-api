@@ -1,6 +1,6 @@
 # Shopping API
 
-[Shipt Question Guide]()
+[Shipt Question Guide](https://github.com/jerryzlau/rails-shop-api/blob/master/Shipt_questions.md)
 
 ## Schema
 
