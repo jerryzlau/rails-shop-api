@@ -4,15 +4,9 @@
 
 Please view [README](https://github.com/jerryzlau/rails-shop-api/blob/master/README.md) for schema detail
 
-### Product 
-
-1. Product table acts as inventory and product index.
-2. I created a join table product_categories to categorize each product, this way a product and category can retain a many_to_many relationship
-3. I created a join table order_items so that orders and product can have a many_to_many relationship. My [order.create](https://github.com/jerryzlau/rails-shop-api/blob/master/app/controllers/orders_controller.rb) function also checks inventory before executing an order.
-
 ## Tasks
 
-1. A product belongs to many categories. A category has many products. A product can be sold in decimal amounts (such as weights).
+### 1. A product belongs to many categories. A category has many products. A product can be sold in decimal amounts (such as weights).
 
 * Visit `localhost:3000/products` to view product index and inventory
 
@@ -22,7 +16,7 @@ Please view [README](https://github.com/jerryzlau/rails-shop-api/blob/master/REA
   t.decimal "weight", precision: 10, scale: 2, null: false
 ```
 
-2. A customer can have many orders. An order is comprised of many products. An order has a status stating if the order is waiting for delivery, on its way, or delivered.
+### 2. A customer can have many orders. An order is comprised of many products. An order has a status stating if the order is waiting for delivery, on its way, or delivered.
 
 * Visit `localhost:3000/orders` to view all orders 
 
@@ -38,7 +32,7 @@ Please view [README](https://github.com/jerryzlau/rails-shop-api/blob/master/REA
   source: :product
 ```
 
-3. Write a SQL query to return the results as display below:
+### 3. Write a SQL query to return the results as display below:
 
 * Leveraged active record to acquire requested result. Visit `localhost:3000/orders/shipt_search/:order_id` to view result of the search result 
 
@@ -46,7 +40,7 @@ Please view [README](https://github.com/jerryzlau/rails-shop-api/blob/master/REA
 | ------------  | ------------------- | --------    |  ----------   | ---------------- |
 | 1             |         John        |      1      | Bouquets      |        15        |n	1	Bouquets	15
 
-4. An API end point that accepts a date range and a day, week, or month and returns a breakdown of products sold by quantity per day/week/month.
+### 4. An API end point that accepts a date range and a day, week, or month and returns a breakdown of products sold by quantity per day/week/month.
 
 * Use postman with params at `POST localhost:3000/orderitems/search_by_date_range` to view query result
 
@@ -66,17 +60,17 @@ Please view [README](https://github.com/jerryzlau/rails-shop-api/blob/master/REA
   end 
 ```
 
-5. Ability to export the results of #4 to CSV.
+### 5. Ability to export the results of #4 to CSV.
 
 * Use postman with params at `POST localhost:3000/orderitems/search_by_date_range.csv` to export search result as csv
 
-7. An API end point that returns the orders for a customer.
+### 7. An API end point that returns the orders for a customer.
 
 * Visit `localhost:3000/users/:user_id` to view user's orders
 
 ## Additional Questions
 
-1. We want to give customers the ability to create lists of products for one-click ordering of bulk items. How would you design the tables, what are the pros and cons of your approach?
+### 1. We want to give customers the ability to create lists of products for one-click ordering of bulk items. How would you design the tables, what are the pros and cons of your approach?
 
 ### Approach 
 
@@ -97,6 +91,6 @@ Please view [README](https://github.com/jerryzlau/rails-shop-api/blob/master/REA
 ### cons
   There are quite a few operations to make sure that every table's data is insync with each other. If part of the Order.create failed, we would be creating inconsistent data across the tables. However, there is a way to solve this problem. I could use transactions to make sure that all operations are performed, if anything goes wrong, a transaction will rollback all operations so that there won't be inconsistent data across tables.
 
-2. If Shipt knew exact inventory of stores, and when facing a high traffic and limited supply of particular item, how do you distribute the inventory among customers checking out?
+### 2. If Shipt knew exact inventory of stores, and when facing a high traffic and limited supply of particular item, how do you distribute the inventory among customers checking out?
 
   Just like how we would in a physical shopping experience. I would create a queue of order inqueries and process them in order. If inventory is out, then it would still be first come first serve. In order to make sure all customers are satisfied, I would also set a cap on how many of a certain product can be bought, so that no customer can out stock a product.
