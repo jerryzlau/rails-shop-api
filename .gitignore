@@ -16,4 +16,6 @@
 /node_modules
 /yarn-error.log
 
+/Shipt_questions.md
+
 .byebug_history
