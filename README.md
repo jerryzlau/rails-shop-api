@@ -114,6 +114,23 @@ for each element in the order_items array, orders create will check if product h
   "range": "day" // day, month or year
 ```
 
+* `POST /orderitems/search_by_date_range.csv` - return number of orders by date range in csv
+
+```ruby 
+  # provide a list of data and column names to build csv
+  def self.to_csv(list, column_names)
+    CSV.generate do |csv|
+      csv << column_names
+
+      list.each do |order_item|
+        csv << order_item.values_at(*column_names)
+      end
+    end
+  end
+```
+
+
+
 
 
 

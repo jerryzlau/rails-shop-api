@@ -9,8 +9,6 @@
 #  updated_at  :datetime         not null
 #
 
-require 'csv'
-
 class OrderItem < ApplicationRecord
   validates :order_id, :product_id, presence: true
 
@@ -24,29 +22,20 @@ class OrderItem < ApplicationRecord
   foreign_key: :product_id,
   class_name: :Product
 
-  # use queries to return search result
+  # query to return search result by date range
+  # returns number of orders by date range provided
   def self.find_by_date(start_date, end_date, range)
-    # OrderItem.where("DATE(created_at) BETWEEN ? AND ?","%#{start_date}%", "%#{end_date + 1.day}%")
-    #   .group("DATE(DATE_TRUNC('#{range}', created_at))").count
-    OrderItem.select("*")
-      .where("DATE(created_at) BETWEEN ? AND ?","%#{start_date}%", "%#{end_date + 1.day}%")
+    OrderItem.where("DATE(created_at) BETWEEN ? AND ?","%#{start_date}%", "%#{end_date}%")
       .group("DATE(DATE_TRUNC('#{range}', created_at))").count
   end 
 
-  # function to export as csv
-  def self.to_csv(list)
-    # built specifically for question 5 
-    column_names = ['date', 'num_orders']
-
+  # provide a list of data and column names to build csv
+  def self.to_csv(list, column_names)
     CSV.generate do |csv|
       csv << column_names
 
       list.each do |order_item|
-        temp = []
-        column_names.each do |name|
-          temp << order_item[name.to_sym]
-        end 
-        csv << temp
+        csv << order_item.values_at(*column_names)
       end
     end
   end
