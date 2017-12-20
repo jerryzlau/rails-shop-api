@@ -1,12 +1,12 @@
 # Shopping API
 
-[Shipt Question Guide](https://github.com/jerryzlau/rails-shop-api/blob/master/Shipt_questions.md)
+[Shipt Question Guide](/Shipt_questions.md)
 
 ## Design
 
 1. Product table acts as inventory and product index.
 2. I created a join table product_categories to categorize each product, this way a product and category can retain a many_to_many relationship
-3. I created a join table order_items so that orders and product can have a many_to_many relationship. My [order.create](https://github.com/jerryzlau/rails-shop-api/blob/master/app/controllers/orders_controller.rb) function also checks inventory before executing an order.
+3. I created a join table order_items so that orders and product can have a many_to_many relationship. My [order.create](/app/controllers/orders_controller.rb) function also checks inventory before executing an order.
 
 ## Schema
 
