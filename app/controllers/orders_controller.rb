@@ -46,20 +46,7 @@ class OrdersController < ApplicationController
   end 
 
   def shipt_search
-    @order = Order.find(params[:id])
-    if @order 
-      @customer = @order.customer
-      @products = @order.products
-      @categories = []
-      @products.each do |product|
-        product.categories.each do |category|
-          @categories << category 
-        end 
-      end 
-      @categories.uniq
-    else 
-      render json: ["Order doesn't exist"], status: 404
-    end 
+    @result = Order.query
   end 
 
   private 

@@ -24,8 +24,9 @@
 | ------------- |:-------------:| -----:  |
 | id            | integer       | not null, primary key |
 | name          | string        | not null |
-| price         | float         | not null |
-| weight        | float         | not null |
+| price         | decimal       | not null |
+| weight        | decimal       | not null |
+| inventory     | integer       | not null |
 | category_id   | integer       | not null |
 
 ### Category

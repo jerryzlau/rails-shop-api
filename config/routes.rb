@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :create] do 
     collection do 
-      get 'shipt_search/:id' => :shipt_search
+      get 'shipt_search' => :shipt_search
     end
   end 
 

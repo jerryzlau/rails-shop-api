@@ -27,4 +27,18 @@ class Order < ApplicationRecord
   has_many :products,
   through: :ordered_items,
   source: :product
+
+  def self.query 
+    
+    sql = "SELECT u.id AS user_id, u.first_name, c.id, c.name AS category_name, COUNT(c.id) AS number_purchased
+    FROM users u
+    JOIN orders o ON u.id = o.customer_id
+    JOIN order_items oi ON o.id = oi.order_id
+    JOIN products p ON p.id = oi.product_id
+    JOIN product_categories pc ON pc.product_id = p.id
+    JOIN categories c ON c.id = pc.category_id
+    GROUP BY u.id, c.id"
+
+    ActiveRecord::Base.connection.execute(sql)
+  end 
 end
