@@ -26,7 +26,7 @@ class OrderItem < ApplicationRecord
   # returns number of orders by date range provided
   def self.find_by_date(start_date, end_date, range)
     OrderItem.where("DATE(created_at) BETWEEN ? AND ?","%#{start_date}%", "%#{end_date}%")
-      .group("DATE(DATE_TRUNC('#{range}', created_at))").count
+             .group("DATE(DATE_TRUNC('#{range}', created_at))").count
   end 
 
   # provide a list of data and column names to build csv
